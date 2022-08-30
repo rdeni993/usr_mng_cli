@@ -1,0 +1,18 @@
+/**
+*
+*   My Extension
+*
+*
+*/
+
+.logo-image {
+    width: 190px!important;
+}
+
+.text-shadow{
+    color: rgb(105, 98, 98);
+}
+
+a{
+    text-decoration: none!important;
+}
