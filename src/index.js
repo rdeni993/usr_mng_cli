@@ -12,6 +12,12 @@ import Profile from "./pages/Profile";
 import Edit from "./pages/Edit";
 import Permissions from "./pages/Permissions";
 
+import axios from "axios";
+
+axios.defaults.headers.common = {
+    'Authorization': 'Bearer ' + localStorage.getItem('auth_token')
+};
+
 /**
  * Main App Component
 */
@@ -83,6 +89,7 @@ const App = () => {
 
                                   <Route path="/login" element={<Login />} />
                                   <Route path="/list" element={<List />} />
+                                  <Route path="/" element={<List />} />
                                   <Route path="/create" element={<Signup />} />
                                   <Route path="/user/:id" element={<Profile />} />
                                   <Route path="/user/edit/:id" element={<Edit />} />

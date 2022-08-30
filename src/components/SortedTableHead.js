@@ -21,7 +21,7 @@ const SortedTableHead = ({setTableData}) => {
 
     return(
         <thead>
-            <tr>
+            <tr className="sortHeader">
                 <th onClick={ () => { sortBy('first_name') } }>First Name</th>
                 <th onClick={ () => { sortBy('last_name') } }>Last Name</th>
                 <th onClick={ () => { sortBy('username') } }>Username</th>

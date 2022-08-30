@@ -11,7 +11,6 @@ import DynPagination from "../components/DynPagination";
 import Filter from "../components/Filter";
 
 const List = () => {
-
     const LIMIT = 5;
 
     const [loading, setLoading] = useState(true);
@@ -22,12 +21,21 @@ const List = () => {
     const[lastIndex, setLastIndex] = useState(LIMIT);
 
     const fetchAPI = async () => {
-        const res = await axios({
-            method : "GET",
-            url    : baseUrl('/api/user')
-        });
-        setTableData(res.data.data);
-        setLoading(false);
+        
+
+        try{
+            const res = await axios({
+                method : "GET",
+                url    : baseUrl('/api/user')
+            });
+            setTableData(res.data.data);
+            setLoading(false);
+        } catch(error) {
+            if(error.response.status){
+                //window.location.href="/login"
+            }
+        }
+
     }
 
     const trim = async () => {
@@ -48,6 +56,9 @@ const List = () => {
     return(
         <Protected warn={true}>
             <Filter tableData={trimData} setTableData={setTrimData} />
+            <p className="text-hidden">
+                <small className="text-secondary">Click column to sort</small>
+            </p>
             <SortedTable>
                 <SortedTableHead setTableData={setTrimData}/>
                 <SortedTableBody setTableData={setTrimData} tableSize={tableData.length} tableData={trimData}></SortedTableBody>

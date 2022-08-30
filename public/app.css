@@ -16,3 +16,7 @@
 a{
     text-decoration: none!important;
 }
+
+.sortHeader {
+    cursor: ns-resize;
+}
